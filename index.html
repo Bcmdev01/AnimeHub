@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> AnimeHub - Accueil</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="loading-spinner" id="loadingSpinner">
+        <div class="spinner"></div>
+    </div>
+    
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark sticky-top custom-navbar">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <i class="bi bi-play-circle me-2"></i> AnimeHub
+                </a>
+                
+                <div class="d-lg-none me-3">
+                    <div class="input-group search-mobile">
+                        <input type="text" id="searchInputMobile" class="form-control" placeholder="Rechercher...">
+                        <button class="btn btn-outline-light" type="button" onclick="searchAnime()">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <button class="navbar-toggler" type="button" id="navbarToggle">
+                    <div class="animated-menu" id="animatedMenu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.html">
+                                <i class="bi bi-house-door me-1"></i>Accueil
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="series.html">
+                                <i class="bi bi-collection-play me-1"></i>Séries
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="films.html">
+                                <i class="bi bi-film me-1"></i>Films
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="nouveautes.html">
+                                <i class="bi bi-star me-1"></i>Nouveautés
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">
+                                <i class="bi bi-envelope me-1"></i>Contact
+                            </a>
+                        </li>
+                    </ul>
+                    
+                    <div class="d-none d-lg-flex me-3">
+                        <div class="input-group search-desktop">
+                            <input type="text" id="searchInputDesktop" class="form-control" placeholder="Rechercher un anime...">
+                            <button class="btn btn-outline-light" type="button" onclick="searchAnime()">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex align-items-center ms-lg-3 mt-2 mt-lg-0">
+                        <button class="theme-toggle" id="themeToggle">
+                            <i class="bi bi-moon-fill"></i> <span>Mode Nuit</span>
+                        </button>
+                        <div class="position-relative">
+                            <button class="lang-toggle" id="langToggle">
+                                <i class="bi bi-translate"></i> <span>Français</span>
+                            </button>
+                            <div class="lang-dropdown" id="langDropdown">
+                                <div class="lang-option" data-lang="fr">
+                                    <i class="bi bi-check-circle-fill me-2"></i>Français
+                                </div>
+                                <div class="lang-option" data-lang="en">
+                                    <i class="bi bi-circle me-2"></i>English
+                                </div>
+                                <div class="lang-option" data-lang="es">
+                                    <i class="bi bi-circle me-2"></i>Español
+                                </div>
+                                <div class="lang-option" data-lang="ja">
+                                    <i class="bi bi-circle me-2"></i>日本語
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="page-transition">
+        <section class="container page-section">
+            <div id="animeSlider" class="carousel slide hero-slider" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#animeSlider" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#animeSlider" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#animeSlider" data-bs-slide-to="2"></button>
+                    <button type="button" data-bs-target="#animeSlider" data-bs-slide-to="3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Attack on Titan">
+                        <div class="carousel-caption">
+                            <h3>Attack on Titan: Final Season</h3>
+                            <p>La bataille finale pour l'humanité arrive à son terme dans cette saison épique.</p>
+                            <a href="#" class="btn-gradient">Regarder maintenant</a>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1639322537228-f710d846310a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1332&q=80" alt="Demon Slayer">
+                        <div class="carousel-caption">
+                            <h3>Demon Slayer: Kimetsu no Yaiba</h3>
+                            <p>Rejoignez Tanjiro dans sa quête pour sauver sa sœur et vaincre les démons.</p>
+                            <a href="#" class="btn-gradient">Regarder maintenant</a>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="download.jpg" alt="Jujutsu Kaisen">
+                        <div class="carousel-caption">
+                            <h3>Jujutsu Kaisen</h3>
+                            <p>Plongez dans un monde de malédictions et de combats surnaturels intenses.</p>
+                            <a href="#" class="btn-gradient">Regarder maintenant</a>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1541562232579-512a21360020?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Spirited Away">
+                        <div class="carousel-caption">
+                            <h3>Le Voyage de Chihiro</h3>
+                            <p>Découvrez le chef-d'œuvre de Hayao Miyazaki qui a conquis le monde entier.</p>
+                            <a href="#" class="btn-gradient">Regarder maintenant</a>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#animeSlider" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#animeSlider" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+        </section>
+
+        <section class="container page-section">
+            <div class="section-title">
+                <h2>Séries Populaires</h2>
+                <p class="lead">Découvrez les séries d'anime les plus populaires du moment</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="anime-card">
+                        <div class="card-image">
+                            <img src="images (5).jpg" alt="Attack on Titan">
+                            <div class="card-overlay">
+                                <span class="rating"><i class="bi bi-star-fill"></i> 4.9</span>
+                                <span class="episodes">88 épisodes</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Attack on Titan</h5>
+                            <p class="card-text">L'humanité vit enfermée dans des villes entourées d'immenses murs pour se protéger des Titans.</p>
+                            <a href="series.html" class="btn-gradient w-100 mt-3">Voir les détails</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="anime-card">
+                        <div class="card-image">
+                            <img src="demon slayer.jpg" alt="Demon Slayer">
+                            <div class="card-overlay">
+                                <span class="rating"><i class="bi bi-star-fill"></i> 4.8</span>
+                                <span class="episodes">55 épisodes</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Demon Slayer</h5>
+                            <p class="card-text">Tanjiro Kamado devient un pourfendeur de démons après que sa famille ait été massacrée.</p>
+                        
+                            <a href="series.html" class="btn-gradient w-100 mt-3">Voir les détails</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="anime-card">
+                        <div class="card-image">
+                            <img src="download.jpg" alt="Jujutsu Kaisen">
+                            
+                            <div class="card-overlay">
+                                <span class="rating"><i class="bi bi-star-fill"></i> 4.7</span>
+                                <span class="episodes">47 épisodes</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Jujutsu Kaisen</h5>
+                            
+                            <p class="card-text">Yuji Itadori intègre l'école d'exorcisme pour combattre les malédictions après avoir avalé un doigt de démon.</p>
+                           
+                            <a href="series.html" class="btn-gradient w-100 mt-3">Voir les détails</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="anime-card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1541562232579-512a21360020?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="My Hero Academia">
+                            <div class="card-overlay">
+                                <span class="rating"><i class="bi bi-star-fill"></i> 4.6</span>
+                                <span class="episodes">138 épisodes</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">My Hero Academia</h5>
+                            <p class="card-text">Dans un monde où 80% de la population possède un super-pouvoir, Izuku Midoriya rêve de devenir un héros.</p>
+                       
+                            <a href="series.html" class="btn-gradient w-100 mt-3">Voir les détails</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <a href="series.html" class="btn-gradient btn-lg">
+                    Voir toutes les séries <i class="bi bi-arrow-right ms-2"></i>
+                </a>
+            </div>
+        </section>
+
+        <section class="container page-section">
+            <div class="section-title">
+                <h2>Films à l'Affiche</h2>
+                <p class="lead">Les meilleurs films d'anime à ne pas manquer</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="anime-card">
+                        <div class="card-image">
+                            <img src="your name.jpg" alt="Your Name">
+                            <div class="card-overlay">
+                                <span class="rating"><i class="bi bi-star-fill"></i> 4.9</span>
+                                <span class="duration">1h 52min</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Your Name</h5>
+                            <p class="card-text">Deux adolescents, un garçon et une fille, échangent leurs corps de manière mystérieuse et cherchent à se rencontrer.</p>
+                         
+                            <a href="films.html" class="btn-gradient w-100 mt-3">Voir les détails</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="anime-card">
+                        <div class="card-image">
+                            <img src="silent voice.jpg" alt="A Silent Voice">
+                            <div class="card-overlay">
+                                <span class="rating"><i class="bi bi-star-fill"></i> 4.8</span>
+                                <span class="duration">2h 9min</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">A Silent Voice</h5>
+                            <p class="card-text">Un ancien tyran scolaire cherche la rédemption en renouant avec la fille sourde qu'il harcelait autrefois.</p>
+                          
+                            <a href="films.html" class="btn-gradient w-100 mt-3">Voir les détails</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="anime-card">
+                        <div class="card-image">
+                            <img src="voyage.jpg" alt="Spirited Away">
+                            <div class="card-overlay">
+                                <span class="rating"><i class="bi bi-star-fill"></i> 4.9</span>
+                                <span class="duration">2h 5min</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Le Voyage de Chihiro</h5>
+                            <p class="card-text">Chihiro, 10 ans, se retrouve dans un monde peuplé d'êtres fantastiques après que ses parents ont été transformés en porcs.</p>
+                          
+                            <a href="films.html" class="btn-gradient w-100 mt-3">Voir les détails</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <a href="films.html" class="btn-gradient btn-lg">
+                    Voir tous les films <i class="bi bi-arrow-right ms-2"></i>
+                </a>
+            </div>
+        </section>
+        
+        <section class="container page-section">
+            <div class="section-title">
+                <h2>Pourquoi AnimeHub?</h2>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="feature-card text-center p-4">
+                        <i class="bi bi-collection-play-fill"></i>
+                        <h4 class="my-3">Contenu Exclusif</h4>
+                        <p>Accédez à des anime exclusifs et des versions non coupées que vous ne trouverez nulle part ailleurs.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="feature-card text-center p-4">
+                        <i class="bi bi-translate"></i>
+                        <h4 class="my-3">Multi-Langues</h4>
+                        <p>Regardez vos anime préférés dans la langue de votre choix avec des sous-titres de qualité.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="feature-card text-center p-4">
+                        <i class="bi bi-phone-fill"></i>
+                        <h4 class="my-3">Accessible Partout</h4>
+                        <p>Profitez de BCM AnimeHub sur tous vos appareils : téléphone, tablette, ordinateur et TV.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h3 class="mb-3">
+                        <i class="bi bi-play-circle me-2"></i>AnimeHub
+                    </h3>
+                    <p>Votre destination ultime pour les meilleurs films et séries d'anime. Découvrez, regardez et profitez d'un contenu de qualité.</p>
+                    <div class="social-links mt-4">
+                        <a href="#" class="social-link"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="bi bi-youtube"></i></a>
+                        <a href="#" class="social-link"><i class="bi bi-discord"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="mb-3">Navigation</h5>
+                    <div class="footer-links">
+                        <a href="index.html" class="footer-link">Accueil</a>
+                        <a href="series.html" class="footer-link">Séries</a>
+                        <a href="films.html" class="footer-link">Films</a>
+                        <a href="nouveautes.html" class="footer-link">Nouveautés</a>
+                        <a href="contact.html" class="footer-link">Contact</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="mb-3">Genres</h5>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">Action</a>
+                        <a href="#" class="footer-link">Aventure</a>
+                        <a href="#" class="footer-link">Comédie</a>
+                        <a href="#" class="footer-link">Drame</a>
+                        <a href="#" class="footer-link">Fantaisie</a>
+                        <a href="#" class="footer-link">Romance</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-12 mb-4">
+                    <h5 class="mb-3">Newsletter</h5>
+                    <p>Inscrivez-vous pour recevoir les dernières actualités sur les anime.</p>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Votre email" id="newsletterEmail">
+                        <button class="btn-gradient" type="button" id="subscribeBtn">S'inscrire</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p class="mb-0">&copy;All Rights Reserved Are Made By BCM</p>
+              
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
